@@ -9,11 +9,10 @@
  --bg:#f7f8fb;--ink:#1f3148;--muted:#6d798c;--card:#fff;
  --dialogue:#ffeef2;--dialogueInk:#c52848;
  --reading:#eef6ff;--readingInk:#2f6fa8;
- --accent1:#ff4b63;--accent2:#ff9800;
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;background:linear-gradient(180deg,#fff6f7 0,#f7f8fb 320px);color:var(--ink)}
-.wrap{max-width:1100px;margin:auto;padding:44px 20px 70px}
+.wrap{max-width:1120px;margin:auto;padding:44px 20px 70px}
 .hero{text-align:center;padding:20px 10px 42px}
 .hero .eyebrow{color:#d86d00;font-weight:800;letter-spacing:.08em;font-size:14px}
 .hero h1{font-size:clamp(32px,5vw,48px);color:#941836;margin:10px 0 12px}
@@ -22,7 +21,7 @@ body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;b
 .legend span{padding:8px 14px;border-radius:999px;font-size:14px;font-weight:700}
 .legend .d{background:var(--dialogue);color:var(--dialogueInk)}
 .legend .r{background:var(--reading);color:var(--readingInk)}
-.units{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.units{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
 .unit{background:var(--card);border:1px solid #e4e8ee;border-radius:22px;padding:24px;box-shadow:0 12px 30px rgba(30,50,80,.07)}
 .unit-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
 .unit-label{font-size:14px;color:#8a96a8;font-weight:800;letter-spacing:.08em}
@@ -32,10 +31,9 @@ body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;b
 .entry:hover{transform:translateY(-2px)}
 .entry.dialogue{background:var(--dialogue);color:var(--dialogueInk);border-color:#ffd6df}
 .entry.reading{background:var(--reading);color:var(--readingInk);border-color:#d7eaff}
-.entry.disabled{opacity:.56;pointer-events:none}
 .entry b{display:block;font-size:19px;margin-bottom:5px}
 .entry span{font-size:14px;line-height:1.6}
-.future{border:2px dashed #dde3ea;background:transparent;box-shadow:none;color:#8b97a8;display:flex;align-items:center;justify-content:center;min-height:210px;text-align:center}
+.future{border:2px dashed #dde3ea;background:transparent;box-shadow:none;color:#8b97a8;display:flex;align-items:center;justify-content:center;min-height:245px;text-align:center}
 .footer{margin-top:34px;text-align:center;color:#98a2b2;font-size:13px}
 </style>
 </head>
@@ -44,7 +42,8 @@ body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;b
   <section class="hero">
     <div class="eyebrow">GRADE 8 ENGLISH READING HUB</div>
     <h1>八年級英文互動閱讀學習網</h1>
-    <p>每一課包含兩種教材：Dialogue 對話教材與 Reading 閱讀教材。<br>練習直接提取、推論、整合、批判思考與生活連結。</p>
+    <p>每一課包含兩種教材：Dialogue 對話教材與 Reading 閱讀教材。<br>
+    練習直接提取、推論、整合、批判思考與生活連結。</p>
     <div class="legend">
       <span class="d">💬 Dialogue 對話教材</span>
       <span class="r">📖 Reading 閱讀教材</span>
@@ -72,19 +71,31 @@ body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;b
       </a>
     </section>
 
-    <section class="unit future">
-      <div>
-        <div class="unit-label">UNIT 2</div>
-        <h2>Coming Next</h2>
-        <p>之後可加入 Dialogue 與 Reading。</p>
+    <section class="unit">
+      <div class="unit-top">
+        <div>
+          <div class="unit-label">UNIT 2</div>
+          <h2>School Clubs</h2>
+        </div>
+        <div class="status">Dialogue & Reading 已完成</div>
       </div>
+
+      <a class="entry dialogue" href="unit2/dialogue/">
+        <b>💬 Dialogue Challenge</b>
+        <span>Choosing a School Club｜社團選擇、興趣、改變與成長｜互動式 PIRLS 閱讀挑戰</span>
+      </a>
+
+      <a class="entry reading" href="unit2/reading/">
+        <b>📖 Reading Challenge</b>
+        <span>Video Game Design Club｜招生廣告、資訊判讀與宣傳策略｜互動式 PIRLS 閱讀挑戰</span>
+      </a>
     </section>
 
     <section class="unit future">
       <div>
-        <div class="unit-label">UNIT 3+</div>
-        <h2>Expandable</h2>
-        <p>後續每課都沿用同一個網站架構。</p>
+        <div class="unit-label">UNIT 3</div>
+        <h2>Coming Next</h2>
+        <p>之後可加入 Dialogue 與 Reading。</p>
       </div>
     </section>
   </main>
