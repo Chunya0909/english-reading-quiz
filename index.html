@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>English Reading Quiz</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#1d2f49;--muted:#6f7b8f;--accent:#ff5a72;--accent2:#ff9a00}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;background:linear-gradient(180deg,#fff6f7,#f6f8fb 340px);color:var(--ink)}
+.wrap{max-width:1000px;margin:auto;padding:50px 20px 70px}
+.hero{text-align:center;padding:30px 20px 45px}
+.hero h1{font-size:40px;margin:0 0 12px;color:#9d1536}
+.hero p{font-size:18px;line-height:1.7;color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid #e4e8ee;border-radius:20px;padding:24px;box-shadow:0 12px 28px rgba(30,50,80,.08)}
+.badge{display:inline-block;background:#fff0f2;color:#d62445;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700}
+.card h2{font-size:23px;margin:16px 0 10px}
+.card p{line-height:1.7;color:var(--muted)}
+.card a{display:inline-block;margin-top:10px;text-decoration:none;color:#fff;background:linear-gradient(90deg,var(--accent),var(--accent2));padding:12px 18px;border-radius:999px;font-weight:800}
+.note{margin-top:32px;padding:18px 20px;border-radius:16px;background:#fff;border:1px dashed #d9dee6;color:#66758b;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <h1>English Reading Quiz</h1>
+    <p>八年級英語閱讀理解互動測驗<br>CEFR × PIRLS × 國中閱讀素養</p>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <span class="badge">Unit 1</span>
+      <h2>Summer Vacation Reading Challenge</h2>
+      <p>Jamie 和 Zac 的暑假旅行、天氣與家人支持。包含直接提取、推論、整合、批判思考與生活連結。</p>
+      <a href="unit1/">開始測驗 Start Quiz</a>
+    </article>
+  </section>
+
+  <div class="note">
+    之後新增課程時，可以依序建立 <strong>unit2</strong>、<strong>unit3</strong>、<strong>unit4</strong> 資料夾，
+    每個資料夾放一個 <strong>index.html</strong>。首頁再新增一張課程卡片即可。
+  </div>
+</div>
+</body>
+</html>
