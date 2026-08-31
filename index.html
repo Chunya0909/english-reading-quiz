@@ -3,44 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>English Reading Quiz</title>
+<title>八年級英文互動閱讀學習網</title>
 <style>
-:root{--bg:#f6f8fb;--card:#fff;--ink:#1d2f49;--muted:#6f7b8f;--accent:#ff5a72;--accent2:#ff9a00}
+:root{
+ --bg:#f7f8fb;--ink:#1f3148;--muted:#6d798c;--card:#fff;
+ --dialogue:#ffeef2;--dialogueInk:#c52848;
+ --reading:#eef6ff;--readingInk:#2f6fa8;
+ --accent1:#ff4b63;--accent2:#ff9800;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;background:linear-gradient(180deg,#fff6f7,#f6f8fb 340px);color:var(--ink)}
-.wrap{max-width:1000px;margin:auto;padding:50px 20px 70px}
-.hero{text-align:center;padding:30px 20px 45px}
-.hero h1{font-size:40px;margin:0 0 12px;color:#9d1536}
-.hero p{font-size:18px;line-height:1.7;color:var(--muted);margin:0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.card{background:var(--card);border:1px solid #e4e8ee;border-radius:20px;padding:24px;box-shadow:0 12px 28px rgba(30,50,80,.08)}
-.badge{display:inline-block;background:#fff0f2;color:#d62445;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700}
-.card h2{font-size:23px;margin:16px 0 10px}
-.card p{line-height:1.7;color:var(--muted)}
-.card a{display:inline-block;margin-top:10px;text-decoration:none;color:#fff;background:linear-gradient(90deg,var(--accent),var(--accent2));padding:12px 18px;border-radius:999px;font-weight:800}
-.note{margin-top:32px;padding:18px 20px;border-radius:16px;background:#fff;border:1px dashed #d9dee6;color:#66758b;line-height:1.7}
+body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;background:linear-gradient(180deg,#fff6f7 0,#f7f8fb 320px);color:var(--ink)}
+.wrap{max-width:1100px;margin:auto;padding:44px 20px 70px}
+.hero{text-align:center;padding:20px 10px 42px}
+.hero .eyebrow{color:#d86d00;font-weight:800;letter-spacing:.08em;font-size:14px}
+.hero h1{font-size:clamp(32px,5vw,48px);color:#941836;margin:10px 0 12px}
+.hero p{margin:0;color:var(--muted);font-size:18px;line-height:1.8}
+.legend{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:22px}
+.legend span{padding:8px 14px;border-radius:999px;font-size:14px;font-weight:700}
+.legend .d{background:var(--dialogue);color:var(--dialogueInk)}
+.legend .r{background:var(--reading);color:var(--readingInk)}
+.units{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.unit{background:var(--card);border:1px solid #e4e8ee;border-radius:22px;padding:24px;box-shadow:0 12px 30px rgba(30,50,80,.07)}
+.unit-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.unit-label{font-size:14px;color:#8a96a8;font-weight:800;letter-spacing:.08em}
+.unit h2{margin:4px 0 0;font-size:25px}
+.status{font-size:12px;padding:6px 10px;border-radius:999px;background:#eef8f4;color:#197052;font-weight:800}
+.entry{display:block;text-decoration:none;border-radius:16px;padding:18px;margin-top:12px;border:1px solid transparent;transition:.15s}
+.entry:hover{transform:translateY(-2px)}
+.entry.dialogue{background:var(--dialogue);color:var(--dialogueInk);border-color:#ffd6df}
+.entry.reading{background:var(--reading);color:var(--readingInk);border-color:#d7eaff}
+.entry.disabled{opacity:.56;pointer-events:none}
+.entry b{display:block;font-size:19px;margin-bottom:5px}
+.entry span{font-size:14px;line-height:1.6}
+.future{border:2px dashed #dde3ea;background:transparent;box-shadow:none;color:#8b97a8;display:flex;align-items:center;justify-content:center;min-height:210px;text-align:center}
+.footer{margin-top:34px;text-align:center;color:#98a2b2;font-size:13px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <section class="hero">
-    <h1>English Reading Quiz</h1>
-    <p>八年級英語閱讀理解互動測驗<br>CEFR × PIRLS × 國中閱讀素養</p>
+    <div class="eyebrow">GRADE 8 ENGLISH READING HUB</div>
+    <h1>八年級英文互動閱讀學習網</h1>
+    <p>每一課包含兩種教材：Dialogue 對話教材與 Reading 閱讀教材。<br>練習直接提取、推論、整合、批判思考與生活連結。</p>
+    <div class="legend">
+      <span class="d">💬 Dialogue 對話教材</span>
+      <span class="r">📖 Reading 閱讀教材</span>
+    </div>
   </section>
 
-  <section class="grid">
-    <article class="card">
-      <span class="badge">Unit 1</span>
-      <h2>Summer Vacation Reading Challenge</h2>
-      <p>Jamie 和 Zac 的暑假旅行、天氣與家人支持。包含直接提取、推論、整合、批判思考與生活連結。</p>
-      <a href="unit1/">開始測驗 Start Quiz</a>
-    </article>
-  </section>
+  <main class="units">
+    <section class="unit">
+      <div class="unit-top">
+        <div>
+          <div class="unit-label">UNIT 1</div>
+          <h2>Summer Vacation</h2>
+        </div>
+        <div class="status">Dialogue 已完成</div>
+      </div>
 
-  <div class="note">
-    之後新增課程時，可以依序建立 <strong>unit2</strong>、<strong>unit3</strong>、<strong>unit4</strong> 資料夾，
-    每個資料夾放一個 <strong>index.html</strong>。首頁再新增一張課程卡片即可。
-  </div>
+      <a class="entry dialogue" href="unit1/dialogue/">
+        <b>💬 Dialogue Challenge</b>
+        <span>Jamie & Zac｜暑假旅行、天氣、家人支持｜互動式 PIRLS 閱讀挑戰</span>
+      </a>
+
+      <a class="entry reading" href="unit1/reading/">
+        <b>📖 Reading Challenge</b>
+        <span>Unit 1 閱讀教材互動題｜等待加入教材內容</span>
+      </a>
+    </section>
+
+    <section class="unit future">
+      <div>
+        <div class="unit-label">UNIT 2</div>
+        <h2>Coming Next</h2>
+        <p>之後可加入 Dialogue 與 Reading。</p>
+      </div>
+    </section>
+
+    <section class="unit future">
+      <div>
+        <div class="unit-label">UNIT 3+</div>
+        <h2>Expandable</h2>
+        <p>後續每課都沿用同一個網站架構。</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer">English Reading Quiz · Grade 8 · CEFR × PIRLS</div>
 </div>
 </body>
 </html>

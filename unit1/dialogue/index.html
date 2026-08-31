@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Summer Vacation Reading Challenge — Grade 8</title>
+<style>
+:root{
+ --bg:#f4f7fa;--card:#fff;--text:#10233f;--muted:#9ba7ba;
+ --pink:#ff4962;--orange:#ff9700;--green:#00bd86;--red:#ff3153;
+ --l1:#fff0f1;--l2:#fff8e7;--l3:#f7f0ff;--l4:#eef7ff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:Georgia,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--text)}
+.screen{min-height:100vh}
+#start{display:grid;place-items:center;padding:50px 20px}
+.start-card{width:min(860px,95vw);background:#fff;border:2px solid #ffd6d9;border-radius:22px;padding:46px 40px 38px;text-align:center;box-shadow:0 18px 32px #26384c1c}
+.heart{font-family:Arial;font-size:72px;line-height:1;color:#fa8295;font-weight:200}
+h1{font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#9d1536;font-size:34px;margin:22px 0 8px}
+.subtitle{font-family:Arial,sans-serif;color:#df7000;font-size:20px;letter-spacing:.02em;margin:0 0 22px}
+.intro{font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:18px;line-height:1.8;color:#59667b}
+.levels{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0 38px}
+.levelbox{padding:20px 8px;border-radius:15px;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif}
+.levelbox b{display:block;font-size:19px;margin-bottom:8px}
+.l1{background:var(--l1);color:#d31335;border:1px solid #ffd7dc}.l2{background:var(--l2);color:#c36b00;border:1px solid #ffe6ad}.l3{background:var(--l3);color:#7829bd;border:1px solid #eadbff}.l4{background:var(--l4);color:#2b72ae;border:1px solid #d8ebff}
+.startbtn{border:0;color:#fff;font-weight:800;font-size:19px;padding:17px 44px;border-radius:999px;background:linear-gradient(90deg,#ff405a,#ff9800);cursor:pointer}
+#quiz{display:none}
+.top{height:64px;background:#fff;border-bottom:1px solid #e8ebef;display:flex;align-items:center;justify-content:space-between;padding:0 34px;position:sticky;top:0;z-index:5}
+.top strong{font:20px Arial,sans-serif;color:#333}.progressText{font:16px Arial,sans-serif;color:#8590a4}
+.quizwrap{max-width:900px;margin:auto;padding:20px 18px 50px}
+.progress{height:7px;background:#e8edf2;border-radius:10px;overflow:hidden;margin:0 0 14px}.bar{height:100%;background:linear-gradient(90deg,#ff4962,#ff9700);width:0;transition:.25s}
+.qcard{background:#fff;border:1px solid #dde3e8;border-radius:20px;padding:30px;box-shadow:0 13px 25px #23384b18}
+.qmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.badge{font:14px Arial,sans-serif;padding:7px 15px;border-radius:999px}
+.badge.level1{background:#ffe1e5;color:#ff153d}.badge.level2{background:#fff0c8;color:#c56d00}.badge.level3{background:#eee1ff;color:#7626b6}.badge.level4{background:#e0f0ff;color:#286fa8}
+.qcount{font-size:18px;color:#9da7ba}
+.question{font-size:27px;line-height:1.45;font-weight:700;margin:0 0 20px}
+.zhhelp{font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#495a70;font-size:16px;line-height:1.7;margin:-6px 0 22px}
+.hint{font-family:Georgia,serif;font-style:italic;color:#ff3d52;font-size:18px;line-height:1.45;margin:0 0 20px}
+.options{display:grid;gap:14px}
+.option{width:100%;text-align:left;background:#fff;border:2px solid #edf0f2;border-radius:16px;padding:20px;font:21px Georgia,"Noto Sans TC",sans-serif;color:#172c48;cursor:pointer;transition:.15s;min-height:72px}
+.option:hover:not(:disabled){border-color:#ffc1ca;transform:translateY(-1px)}
+.option:disabled{cursor:default;color:#a6b0c0}
+.option.wrong{border-color:var(--red);background:#fff0f2;color:#8d1229}
+.option.correct{border-color:var(--green);background:#e8fbf5;color:#075c48}
+.option .mark{float:right;font-family:Arial;font-weight:bold;font-size:25px}
+textarea{width:100%;min-height:170px;border:2px solid #dde3e8;border-radius:16px;padding:18px 20px;font:18px/1.6 Georgia,"Noto Sans TC",sans-serif;color:#203451;resize:vertical;outline:none}
+textarea:focus{border-color:#b8cde3;box-shadow:0 0 0 4px #eef6ff}
+.starters{margin-top:16px;padding:16px;border-radius:14px;background:#faf7ff;border:1px solid #eadbff;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.7;color:#5b4a71}
+.feedback{display:none;margin-top:28px;padding:20px;border-radius:15px;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:16px;line-height:1.7}
+.feedback.good{display:block;background:#e8fbf5;border:1px solid #c0f2df;color:#006b54}
+.feedback.bad{display:block;background:#fff0f1;border:1px solid #ffd7dc;color:#a41331}
+.feedback.info{display:block;background:#eef7ff;border:1px solid #d4e8fb;color:#2c5b84}
+.feedback strong{font-size:18px}
+.actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+.next,.submitopen{border:0;background:#172c48;color:white;border-radius:12px;padding:13px 28px;font-weight:800;font-size:16px;cursor:pointer}
+.submitopen{background:linear-gradient(90deg,#7b2cbf,#9b5de5)}
+#result{display:none;text-align:center}
+.result-card{background:#fff;border-radius:22px;border:1px solid #e0e4e8;padding:45px;box-shadow:0 16px 28px #23384b16}
+.score{font:800 60px Arial;color:#9d1536}.result-card h2{font-size:30px}.breakdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:30px 0}.mini{border-radius:14px;padding:15px;font-family:"Noto Sans TC",sans-serif}
+.openresponses{text-align:left;margin-top:28px;padding-top:24px;border-top:1px solid #e5e9ee}
+.responsebox{background:#fafafa;border:1px solid #e5e9ee;border-radius:14px;padding:16px;margin:12px 0;white-space:pre-wrap;font-family:"Noto Sans TC",sans-serif;line-height:1.7}
+.retry{border:0;background:linear-gradient(90deg,#ff405a,#ff9800);color:#fff;padding:14px 30px;border-radius:999px;font-size:17px;font-weight:800;cursor:pointer}
+@media(max-width:700px){.levels,.breakdown{grid-template-columns:1fr 1fr}.start-card{padding:30px 20px}.question{font-size:22px}.option{font-size:18px}.qcard{padding:22px}.top{padding:0 18px}}
+</style>
+</head>
+<body>
+<section id="start" class="screen">
+ <div class="start-card">
+  <div class="heart">♡</div>
+  <h1>暑假旅行・天氣與友情</h1>
+  <div class="subtitle">✨ SUMMER VACATION READING CHALLENGE ✨</div>
+  <p class="intro">八年級英語閱讀挑戰｜從 Jamie 和 Zac 的旅行對話中找線索、做推論，最後連結到自己的生活經驗。</p>
+  <div class="levels">
+   <div class="levelbox l1"><b>Q1–Q2</b>直接提取訊息</div>
+   <div class="levelbox l2"><b>Q3–Q4</b>直接推論</div>
+   <div class="levelbox l3"><b>Q5–Q7</b>詮釋與整合</div>
+   <div class="levelbox l4"><b>Q8–Q10</b>評估 × 思辨 × 生活連結</div>
+  </div>
+  <button class="startbtn" onclick="startQuiz()">開啟暑假挑戰 Start Quiz</button>
+ </div>
+</section>
+
+<section id="quiz" class="screen">
+ <header class="top"><strong>Summer Vacation Reading Quiz</strong><span class="progressText" id="topCount"></span></header>
+ <main class="quizwrap">
+  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div id="questionArea"></div>
+  <section id="result">
+   <div class="result-card">
+    <div>YOUR SCORE</div><div class="score" id="score"></div>
+    <h2 id="resultTitle"></h2><p id="resultMsg"></p>
+    <div class="breakdown" id="breakdown"></div>
+    <div class="openresponses">
+      <h3>你的開放式回答 Open-ended Responses</h3>
+      <div><strong>Q9</strong><div class="responsebox" id="r9"></div></div>
+      <div><strong>Q10</strong><div class="responsebox" id="r10"></div></div>
+    </div>
+    <button class="retry" onclick="location.reload()">重新挑戰 Try Again</button>
+   </div>
+  </section>
+ </main>
+</section>
+
+<script>
+const data=[
+{type:"mc",cls:"level1",badge:"Level 1 · Literal",q:"Where did Zac go during his summer vacation?",opts:["Australia","India","Taiwan","Japan"],ans:1,good:"Zac says, “I visited my aunt in India.”",hint:"再看 Zac 說自己去拜訪 aunt 的那一句。"},
+{type:"mc",cls:"level1",badge:"Level 1 · Literal",q:"What did Jamie’s parents give her for her birthday?",opts:["A pair of gloves","A new snowboard","A lovely jacket","A nice postcard"],ans:2,good:"Jamie says, “My parents gave it to me for my birthday.” Here, “it” means the lovely jacket.",hint:"注意 Zac 問 lovely jacket 後，Jamie 的回答。"},
+{type:"mc",cls:"level2",badge:"Level 2 · Inferential",q:"Why did Zac say the weather in India was like the weather in Taiwan?",opts:["It was hot and rainy.","It was cold and snowy.","It was warm and windy.","It was cool and cloudy."],ans:0,good:"Zac says it was hot and rained a lot. Jamie then says it was just like the weather in Taiwan.",hint:"把 Zac 描述 India 天氣的兩個線索合在一起。"},
+{type:"mc",cls:"level2",badge:"Level 2 · Inferential",q:"Why did Jamie probably need warm clothes in Australia?",opts:["She went there with her aunt.","She stayed there for one week.","She got a jacket for her birthday.","The weather there was cold and snowy."],ans:3,good:"Jamie says Australia was cold and it snowed for a few days, so warm clothes were useful.",hint:"想一想：什麼樣的天氣會讓人需要 jacket 和 gloves？"},
+{type:"mc",cls:"level3",badge:"Level 3 · Integrative",q:"What do the two dialogues together tell us about Jamie’s trip to Australia?",opts:["She visited her aunt and stayed inside.","She enjoyed the trip and had winter things.","She sent her parents a picture from India.","She disliked the weather and came home early."],ans:1,good:"Jamie says she had a good time. The second dialogue also mentions her snowboard, gloves, and jacket.",hint:"需要同時使用第一段的旅行感受和第二段的物品資訊。"},
+{type:"mc",cls:"level3",badge:"Level 3 · Integrative",q:"Which is true about Jamie and Zac’s summer vacations?",opts:["They both traveled and had different weather.","They both traveled and had snowy weather.","They both stayed with their aunts in India.","They both got winter clothes as birthday gifts."],ans:0,good:"Zac traveled to hot, rainy India; Jamie traveled to cold, snowy Australia.",hint:"比較兩個人的旅行地點和天氣，而不是只看其中一人。"},
+{type:"mc",cls:"level3",badge:"Level 3 · Integrative",q:"What can we learn about Jamie’s snowboard, gloves, and jacket?",opts:["She bought all of them in Australia.","Her parents gave all of them to her.","Her aunt gave all of them to her.","She got them from different family members."],ans:3,good:"Her aunt lent the snowboard and gloves, while her parents gave her the jacket.",hint:"追蹤三樣物品的來源：snowboard、gloves、jacket。"},
+{type:"mc",cls:"level4",badge:"Level 4 · Critical",q:"What is the main purpose of these two dialogues?",opts:["To teach readers how to buy winter clothes","To show why traveling abroad is expensive","To show friends sharing travel experiences","To explain how weather changes every month"],ans:2,good:"The dialogues mainly show two friends sharing their trips, weather, pictures, and travel-related items.",hint:"不要只看某一個細節；想想兩段對話共同在談什麼。"},
+{type:"open",cls:"level4",badge:"Critical Thinking",q:"Jamie borrowed a snowboard and gloves from her aunt, and her parents gave her a warm jacket. What do these actions tell us about Jamie’s family relationship? Explain your answer with information from the dialogues.",zh:"從 Jamie 的阿姨和父母為她準備物品這件事，可以看出她和家人的關係如何？請根據對話內容說明。",hint:"💡 Hint: Think about how her family helps her and prepares things for her.",starter:"I think Jamie has a ______ relationship with her family because ______.",sample:"Sample idea: I think Jamie has a close and caring relationship with her family because her aunt lent her winter things and her parents gave her a warm jacket."},
+{type:"open",cls:"level4",badge:"Personal Connection",q:"When you have an important trip, school activity, or competition, people around you may help you in different ways. Who usually helps you, and how does that support make you feel or perform better? Give one example from your life.",zh:"當你要旅行、參加學校活動或比賽時，誰通常會幫助你？這些幫助如何影響你的感受或表現？請舉一個自己的例子。",hint:"💡 Hint: Think about your family, friends, classmates, or teachers.",starter:"When I ______, my ______ helps me by ______. This makes me feel ______ because ______.",sample:"Sample idea: When I have a school competition, my parents help me prepare what I need. This makes me feel calm and supported because I know I am not alone."}
+];
+
+let idx=0,score=0,levelScores=[0,0,0,0],openAnswers={8:"",9:""};
+
+function startQuiz(){document.getElementById("start").style.display="none";document.getElementById("quiz").style.display="block";render()}
+function levelIndex(i){return i<2?0:i<4?1:i<7?2:3}
+function render(){
+ const x=data[idx];
+ document.getElementById("topCount").textContent=`Question ${idx+1} / ${data.length}`;
+ document.getElementById("bar").style.width=`${idx/data.length*100}%`;
+ let body="";
+ if(x.type==="mc"){
+  body=`<div class="options">${x.opts.map((o,i)=>`<button class="option" onclick="choose(${i},this)">${"ABCD"[i]}) ${o}<span class="mark"></span></button>`).join("")}</div>
+        <div class="feedback" id="feedback"></div>
+        <div class="actions"><button class="next" id="next" style="display:none" onclick="nextQ()">${idx===data.length-1?"查看結果 See Result":"下一題 Next →"}</button></div>`;
+ }else{
+  body=`<div class="zhhelp">${x.zh}</div>
+        <div class="hint">${x.hint}</div>
+        <textarea id="openText" placeholder="請在這裡輸入你的想法... (Type your thoughts here...)">${openAnswers[idx]||""}</textarea>
+        <div class="starters"><strong>Sentence starter:</strong><br>${x.starter}</div>
+        <div class="feedback info" id="feedback" style="display:none"></div>
+        <div class="actions"><button class="submitopen" onclick="submitOpen()">Submit My Idea</button><button class="next" id="next" style="display:none" onclick="nextQ()">${idx===data.length-1?"查看結果 See Result":"下一題 Next →"}</button></div>`;
+ }
+ document.getElementById("questionArea").innerHTML=`
+ <div class="qcard">
+  <div class="qmeta"><span class="badge ${x.cls}">${x.badge}</span><span class="qcount">Question ${idx+1} / ${data.length}</span></div>
+  <div class="question">${x.q}</div>${body}
+ </div>`;
+}
+function choose(choice,btn){
+ const x=data[idx], buttons=[...document.querySelectorAll(".option")], fb=document.getElementById("feedback");
+ buttons.forEach(b=>b.disabled=true);
+ if(choice===x.ans){
+  score++; levelScores[levelIndex(idx)]++;
+  btn.classList.add("correct");btn.querySelector(".mark").textContent="✓";
+  fb.className="feedback good";fb.innerHTML=`<strong>太棒了，答對了！✨</strong><br>${x.good}`;
+ }else{
+  btn.classList.add("wrong");btn.querySelector(".mark").textContent="×";
+  buttons[x.ans].classList.add("correct");buttons[x.ans].querySelector(".mark").textContent="✓";
+  fb.className="feedback bad";fb.innerHTML=`<strong>差一點點，看看提示再想想：</strong><br>${x.hint}<br><span style="opacity:.8">${x.good}</span>`;
+ }
+ fb.style.display="block";
+ document.getElementById("next").style.display="inline-block";
+}
+function submitOpen(){
+ const x=data[idx], text=document.getElementById("openText").value.trim(), fb=document.getElementById("feedback");
+ if(!text){
+  fb.className="feedback bad";fb.style.display="block";fb.innerHTML="<strong>請先寫下你的想法。</strong><br>你可以使用上面的 sentence starter 幫助你開始。";return;
+ }
+ openAnswers[idx]=text;
+ fb.className="feedback info";fb.style.display="block";
+ fb.innerHTML=`<strong>已收到你的想法。這題沒有唯一標準答案。</strong><br>${x.sample}`;
+ document.getElementById("next").style.display="inline-block";
+}
+function nextQ(){
+ if(idx<data.length-1){idx++;render();window.scrollTo({top:0,behavior:"smooth"})}else showResult()
+}
+function showResult(){
+ document.getElementById("questionArea").style.display="none";
+ document.getElementById("bar").style.width="100%";
+ document.getElementById("topCount").textContent="Completed";
+ const r=document.getElementById("result");r.style.display="block";
+ document.getElementById("score").textContent=`${score} / 8`;
+ let title=score>=7?"Excellent! 閱讀高手！":score>=6?"Great job! 表現很好！":score>=4?"Good effort! 再挑戰一次！":"Keep practicing! 再讀一次對話！";
+ document.getElementById("resultTitle").textContent=title;
+ document.getElementById("resultMsg").textContent="選擇題共 8 題；Q9–Q10 為開放式思辨與生活連結，不計入分數。";
+ const names=[["Q1–Q2","直接提取",2,"l1"],["Q3–Q4","直接推論",2,"l2"],["Q5–Q7","詮釋整合",3,"l3"],["Q8","文本評估",1,"l4"]];
+ document.getElementById("breakdown").innerHTML=names.map((n,i)=>`<div class="mini ${n[3]}"><b>${n[0]}</b><br>${n[1]}<br><strong>${levelScores[i]} / ${n[2]}</strong></div>`).join("");
+ document.getElementById("r9").textContent=openAnswers[8]||"（未作答）";
+ document.getElementById("r10").textContent=openAnswers[9]||"（未作答）";
+}
+</script>
+</body></html>

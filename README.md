@@ -1,37 +1,41 @@
-# English Reading Quiz Site
+# 八年級英文互動閱讀學習網
 
-## 目前結構
+## 固定網站架構
+
+每一課包含：
+
+- Dialogue 對話教材
+- Reading 閱讀教材
+
+目前：
 
 - `index.html`：網站首頁
-- `unit1/index.html`：Unit 1 互動式閱讀測驗
+- `unit1/dialogue/index.html`：Unit 1 Dialogue
+- `unit1/reading/index.html`：Unit 1 Reading（目前為待加入教材頁）
 
-## 建議 GitHub Repository 名稱
+## 未來新增課程
+
+例如 Unit 2：
+
+- `unit2/dialogue/index.html`
+- `unit2/reading/index.html`
+
+再更新首頁 `index.html`，增加 Unit 2 課程卡片即可。
+
+## GitHub Pages
+
+Repository 建議保持：
 
 `english-reading-quiz`
 
-## 上傳 GitHub Pages
+網站：
 
-1. 在 GitHub 建立新的 repository，例如 `english-reading-quiz`
-2. 將本資料夾中的所有檔案上傳到 repository 根目錄
-3. GitHub → Settings → Pages
-4. Build and deployment → Source 選 `Deploy from a branch`
-5. Branch 選 `main`，Folder 選 `/ (root)`
-6. 儲存後等候約 1–3 分鐘
+`https://你的帳號.github.io/english-reading-quiz/`
 
-之後網址通常會是：
+Unit 1 Dialogue：
 
-`https://你的GitHub帳號.github.io/english-reading-quiz/`
+`https://你的帳號.github.io/english-reading-quiz/unit1/dialogue/`
 
-Unit 1：
+Unit 1 Reading：
 
-`https://你的GitHub帳號.github.io/english-reading-quiz/unit1/`
-
-## 之後新增課程
-
-建立：
-
-- `unit2/index.html`
-- `unit3/index.html`
-- `unit4/index.html`
-
-並在首頁 `index.html` 增加對應的課程入口。
+`https://你的帳號.github.io/english-reading-quiz/unit1/reading/`
