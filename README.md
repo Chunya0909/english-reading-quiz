@@ -1,41 +1,66 @@
-# 八年級英文互動閱讀學習網
+# English Reading Quiz Site｜英語閱讀互動學習網
 
-## 固定網站架構
+這是為國中八年級設計的英文閱讀理解互動練習網站。每課分為 **Dialogue（對話）** 與 **Reading（閱讀）** 兩份教材，練習直接提取、推論、整合、批判思考與生活連結。
 
-每一課包含：
+## 網站入口
 
-- Dialogue 對話教材
-- Reading 閱讀教材
+**[開啟課程總首頁](https://chunya0909.github.io/english-reading-quiz/)**
 
-目前：
+## 課程一覽
 
-- `index.html`：網站首頁
-- `unit1/dialogue/index.html`：Unit 1 Dialogue
-- `unit1/reading/index.html`：Unit 1 Reading（目前為待加入教材頁）
+| 單元 | 主題 | Dialogue | Reading |
+|---|---|---|---|
+| Unit 1 | Summer Vacation | [對話練習](https://chunya0909.github.io/english-reading-quiz/unit1/dialogue/) | [閱讀練習](https://chunya0909.github.io/english-reading-quiz/unit1/reading/) |
+| Unit 2 | School Clubs | [對話練習](https://chunya0909.github.io/english-reading-quiz/unit2/dialogue/) | [閱讀練習](https://chunya0909.github.io/english-reading-quiz/unit2/reading/) |
+| Unit 3 | Mystery & Dreams | [對話練習](https://chunya0909.github.io/english-reading-quiz/unit3/dialogue/) | [閱讀練習](https://chunya0909.github.io/english-reading-quiz/unit3/reading/) |
+| Unit 4 | Dreams & Future Careers | [對話練習](https://chunya0909.github.io/english-reading-quiz/unit4/dialogue/) | [閱讀練習](https://chunya0909.github.io/english-reading-quiz/unit4/reading/) |
+| Unit 5 | London Travel | [對話練習](https://chunya0909.github.io/english-reading-quiz/unit5/dialogue/) | [閱讀練習](https://chunya0909.github.io/english-reading-quiz/unit5/reading/) |
+| Unit 6 | Christmas Shopping & Fast Fashion | [對話練習](https://chunya0909.github.io/english-reading-quiz/unit6/dialogue/) | [閱讀練習](https://chunya0909.github.io/english-reading-quiz/unit6/reading/) |
 
-## 未來新增課程
+> 上列連結依照專案的預期資料夾結構編排。若個別單元尚未部署完成，請先確認對應的 `index.html` 已上傳。
 
-例如 Unit 2：
+## 練習特色
 
-- `unit2/dialogue/index.html`
-- `unit2/reading/index.html`
+- PIRLS 四層次閱讀理解：直接提取、直接推論、詮釋整合、比較評估。
+- 選擇題提供即時答題回饋、提示與閱讀證據。
+- 開放式題目鼓勵批判思考與個人生活連結。
+- 各單元使用不同的主題配色，適合課堂與自主練習。
 
-再更新首頁 `index.html`，增加 Unit 2 課程卡片即可。
+## 網站檔案結構
 
-## GitHub Pages
+```text
+english-reading-quiz/
+├── index.html                # 全站總首頁
+├── README.md                 # 本說明文件
+├── unit1/
+│   ├── dialogue/index.html
+│   └── reading/index.html
+├── unit2/
+│   ├── dialogue/index.html
+│   └── reading/index.html
+├── unit3/
+│   ├── dialogue/index.html
+│   └── reading/index.html
+├── unit4/
+│   ├── dialogue/index.html
+│   └── reading/index.html
+├── unit5/
+│   ├── dialogue/index.html
+│   └── reading/index.html
+└── unit6/
+    ├── dialogue/index.html
+    └── reading/index.html
+```
 
-Repository 建議保持：
+## 新增課程的方法
 
-`english-reading-quiz`
+1. 在儲存庫建立 `unit7/dialogue/index.html` 與 `unit7/reading/index.html`（以 Unit 7 為例）。
+2. 修改**最外層** `index.html`，新增 Unit 7 的課程卡片與兩個連結。
+3. 更新本 `README.md` 的課程表與檔案結構。
+4. 在 GitHub 提交（Commit changes），等待 GitHub Pages 部署完成後檢查連結。
 
-網站：
+## GitHub Pages 部署
 
-`https://你的帳號.github.io/english-reading-quiz/`
+在 GitHub 儲存庫的 **Settings → Pages** 中，選擇 **Deploy from a branch**，分支為 `main`、資料夾為 `/ (root)`。
 
-Unit 1 Dialogue：
-
-`https://你的帳號.github.io/english-reading-quiz/unit1/dialogue/`
-
-Unit 1 Reading：
-
-`https://你的帳號.github.io/english-reading-quiz/unit1/reading/`
+本網站用於英語閱讀教學與練習。
